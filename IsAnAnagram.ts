@@ -20,7 +20,7 @@ class AnagramHelper {
         Algorithm confirm that both strings have same letters by comparing 
         first word to second and removing letters that are the same from both words 
 
-        Homework: Finish writing the algorithm. Start using data structures and control flow structures in your algorithm.
+        HOMEWORK: Finish writing the algorithm. Start using data structures and control flow structures in your algorithm.
           - Remember: You don't have to get all the way there in a single leap. You can do it a piece at a time.
           - Also: Strings are arrays of characters, or at least can be looked at as an array of characters. Arrays are data structures. 
           - You will likely have to use some placeholder variables of some kind, because modifying arrays that you're looping over causes problems. 
