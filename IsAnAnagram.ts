@@ -24,9 +24,7 @@ class AnagramHelper {
     this.firstWord = firstWord;
     this.secondWord = secondWord;
 
-    // Split string by character
-    const firstArray: string[] = firstWord.split('');
-    const secondArray: string[] = secondWord.split('');
+    
 
     // Show how the firstWord and secondWord have transformed into arrays
     console.log(firstArray, secondArray);
@@ -41,12 +39,19 @@ class AnagramHelper {
     return firstArrayPassed && secondArrayPassed;
   }
   
+  // ***HW: Refactor this function here. Can't remove the split(). Can remove the join().
+  // Could remove the class variables, as well || use the class variables instead
+  // of parameters.***
   private isArrayAnAnagram(firstArray: string[], secondArray: string[]): boolean {
+    // Split string by character
+    const firstArray: string[] = firstWord.split('');
+    const secondArray: string[] = secondWord.split('');
+
     let firstArrayPassed: boolean = true;
 
     if (firstArray.every((w) => secondArray.includes(w))) {
       // Show if first word passes anagram test through console
-      console.log("Found all letters of " + this.firstWord + " in " + this.secondWord);
+      console.log("Found all letters of " + firstArray.join('') + " in " + secondArray.join(''));
     } else {
       firstArrayPassed = false;
       // Show if first word does not pass anagram test through console
