@@ -56,9 +56,10 @@ function reorderMessage(message: messagePart[]): string {
     return output;
 }
 
-
 //newMessage = reorderMessage(messageOne);
 console.log(reorderMessage(messageOne));
+console.log(reorderMessage(messageTwo));
+console.log(reorderMessage(messageThree));
 
 /*
 let output: string = "";
