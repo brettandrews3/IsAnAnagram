@@ -19,7 +19,6 @@ var AnagramHelper = /** @class */ (function () {
             */
         this.firstWord = firstWord;
         this.secondWord = secondWord;
-        // Split string by character
         var firstArray = firstWord.split('');
         var secondArray = secondWord.split('');
         // Show how the firstWord and secondWord have transformed into arrays
@@ -30,16 +29,20 @@ var AnagramHelper = /** @class */ (function () {
         var secondArrayPassed = this.isArrayAnAnagram(secondArray, firstArray);
         return firstArrayPassed && secondArrayPassed;
     };
+    // ***HW: Refactor this function here. Can't remove the split(). Can remove the join().
+    // Could remove the class variables, as well || use the class variables instead
+    // of parameters.***
     AnagramHelper.prototype.isArrayAnAnagram = function (firstArray, secondArray) {
+        // Split string by character
         var firstArrayPassed = true;
         if (firstArray.every(function (w) { return secondArray.includes(w); })) {
             // Show if first word passes anagram test through console
-            console.log("Found all letters of " + this.firstWord + " in " + this.secondWord);
+            console.log("Found all letters of " + firstArray.join('') + " in " + secondArray.join(''));
         }
         else {
             firstArrayPassed = false;
             // Show if first word does not pass anagram test through console
-            console.log("Did not find all letters of " + this.firstWord + " in " + this.secondWord);
+            console.log("Did not find all letters of " + firstArray.join('') + " in " + secondArray.join(''));
         }
         return firstArrayPassed;
     };

@@ -24,7 +24,8 @@ class AnagramHelper {
     this.firstWord = firstWord;
     this.secondWord = secondWord;
 
-    
+    const firstArray: string[] = firstWord.split('');
+    const secondArray: string[] = secondWord.split('')
 
     // Show how the firstWord and secondWord have transformed into arrays
     console.log(firstArray, secondArray);
@@ -44,23 +45,21 @@ class AnagramHelper {
   // of parameters.***
   private isArrayAnAnagram(firstArray: string[], secondArray: string[]): boolean {
     // Split string by character
-    const firstArray: string[] = firstWord.split('');
-    const secondArray: string[] = secondWord.split('');
 
-    let firstArrayPassed: boolean = true;
-
+    let firstArrayPassed = true
     if (firstArray.every((w) => secondArray.includes(w))) {
       // Show if first word passes anagram test through console
       console.log("Found all letters of " + firstArray.join('') + " in " + secondArray.join(''));
     } else {
-      firstArrayPassed = false;
+      firstArrayPassed = false 
       // Show if first word does not pass anagram test through console
       console.log(
-        "Did not find all letters of " + this.firstWord + " in " + this.secondWord
+        "Did not find all letters of " + firstArray.join('') + " in " + secondArray.join('')
       );
     }
 
-    return firstArrayPassed;
+   return firstArrayPassed
+   
   }
   
 }
