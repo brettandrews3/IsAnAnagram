@@ -17,32 +17,30 @@ var AnagramHelper = /** @class */ (function () {
               - (Recursion may make the solution simpler. But if it's confusing, there are other ways. Don't beat yourself
                 up.)
             */
-        this.firstWord = firstWord;
-        this.secondWord = secondWord;
-        var firstArray = firstWord.split('');
-        var secondArray = secondWord.split('');
-        // Show how the firstWord and secondWord have transformed into arrays
-        console.log(firstArray, secondArray);
         // Store value of first array comparison to second array
-        var firstArrayPassed = this.isArrayAnAnagram(firstArray, secondArray);
+        var firstArrayPassed = this.isWordAnAnagram(firstWord, secondWord);
         // Store value of second array comparison to first array
-        var secondArrayPassed = this.isArrayAnAnagram(secondArray, firstArray);
+        var secondArrayPassed = this.isWordAnAnagram(secondWord, firstWord);
         return firstArrayPassed && secondArrayPassed;
     };
     // ***HW: Refactor this function here. Can't remove the split(). Can remove the join().
     // Could remove the class variables, as well || use the class variables instead
     // of parameters.***
-    AnagramHelper.prototype.isArrayAnAnagram = function (firstArray, secondArray) {
+    AnagramHelper.prototype.isWordAnAnagram = function (firstWord, secondWord) {
         // Split string by character
+        var firstArray = firstWord.split('');
+        var secondArray = secondWord.split('');
+        // Show how the firstWord and secondWord have transformed into arrays
+        console.log(firstArray, secondArray);
         var firstArrayPassed = true;
         if (firstArray.every(function (w) { return secondArray.includes(w); })) {
-            // Show if first word passes anagram test through console
-            console.log("Found all letters of " + firstArray.join('') + " in " + secondArray.join(''));
+            // Show if first word passes anagram test through console:
+            console.log("Found all letters of " + firstWord + " in " + secondWord);
         }
         else {
             firstArrayPassed = false;
-            // Show if first word does not pass anagram test through console
-            console.log("Did not find all letters of " + firstArray.join('') + " in " + secondArray.join(''));
+            // Show if first word does not pass anagram test through console:
+            console.log("Did not find all letters of " + firstWord + " in " + secondWord);
         }
         return firstArrayPassed;
     };

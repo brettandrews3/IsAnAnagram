@@ -1,7 +1,6 @@
-class AnagramHelper {
 
-  private firstWord: string;
-  private secondWord: string;
+
+class AnagramHelper {
 
   public isAnAnagram(firstWord: string, secondWord: string): boolean {
     
@@ -21,20 +20,11 @@ class AnagramHelper {
             up.)
         */
 
-    this.firstWord = firstWord;
-    this.secondWord = secondWord;
-
-    const firstArray: string[] = firstWord.split('');
-    const secondArray: string[] = secondWord.split('')
-
-    // Show how the firstWord and secondWord have transformed into arrays
-    console.log(firstArray, secondArray);
-
     // Store value of first array comparison to second array
-    let firstArrayPassed = this.isArrayAnAnagram(firstArray, secondArray);
+    let firstArrayPassed = this.isWordAnAnagram(firstWord, secondWord);
 
     // Store value of second array comparison to first array
-    let secondArrayPassed = this.isArrayAnAnagram(secondArray, firstArray);
+    let secondArrayPassed = this.isWordAnAnagram(secondWord, firstWord);
        
 
     return firstArrayPassed && secondArrayPassed;
@@ -43,22 +33,27 @@ class AnagramHelper {
   // ***HW: Refactor this function here. Can't remove the split(). Can remove the join().
   // Could remove the class variables, as well || use the class variables instead
   // of parameters.***
-  private isArrayAnAnagram(firstArray: string[], secondArray: string[]): boolean {
+  private isWordAnAnagram(firstWord: string, secondWord: string): boolean {
     // Split string by character
+    const firstArray: string[] = firstWord.split('');
+    const secondArray: string[] = secondWord.split('')
 
-    let firstArrayPassed = true
-    if (firstArray.every((w) => secondArray.includes(w))) {
-      // Show if first word passes anagram test through console
-      console.log("Found all letters of " + firstArray.join('') + " in " + secondArray.join(''));
+    // Show how the firstWord and secondWord have transformed into arrays
+    console.log(firstArray, secondArray);
+
+    let firstArrayPassed: boolean = firstArray.every((w) => secondArray.includes(w));
+
+    if (firstArrayPassed) {
+      // Show if first word passes anagram test through console:
+      console.log("Found all letters of " + firstWord + " in " + secondWord);
     } else {
-      firstArrayPassed = false 
-      // Show if first word does not pass anagram test through console
+      // Show if first word does not pass anagram test through console:
       console.log(
-        "Did not find all letters of " + firstArray.join('') + " in " + secondArray.join('')
+        "Did not find all letters of " + firstWord + " in " + secondWord
       );
     }
 
-   return firstArrayPassed
+   return firstArrayPassed;
    
   }
   
